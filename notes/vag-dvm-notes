@@ -1,0 +1,4 @@
+vagrant init precise64 http://files.vagrantup.com/precise64.box
+vagrant up
+sudo apt-get update && sudo apt-get install linux-image-generic-lts-raring
+VBoxManage modifyvm  --dvd /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso

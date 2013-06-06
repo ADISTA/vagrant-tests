@@ -1,0 +1,25 @@
+vagrant error after updating kernel:
+
+The following SSH command responded with a non-zero exit status.
+Vagrant assumes that this means the command failed!
+
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g vagrant` /vagrant /vagrant
+
+
+vagrant halt
+VBoxManage list vms
+    "precise32_1370021535" {de938317-f276-4d78-a8c2-cc4bf7d0d53f}
+    "precise64_1370028812" {b6493188-03d2-4748-a6d9-152823efde9d}
+
+VBoxManage modifyvm precise64_1370027608 --dvd /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+ VBoxManage modifyvm `VBoxManage list vms | grep dvm | awk '{print $1}' | tr -d "\""` --dvd /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+vagrant up
+vagrant ssh
+
+sudo mount /dev/cdrom1 /media/cdrom
+cd /media/cdrom
+sudo ./VBoxLinuxAdditions.run --nox11
+sudo mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g vagrant` `/vagrant /vagrant
+
+exit
+vagrant reload
