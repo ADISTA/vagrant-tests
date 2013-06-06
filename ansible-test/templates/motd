@@ -1,0 +1,4 @@
+Welcome my son, to the machine
+{{ansible_lsb.description}} {{ansible_system}} {{ansible_kernel}} {{ansible_architecture}}
+
+All your ansible are belong to us!

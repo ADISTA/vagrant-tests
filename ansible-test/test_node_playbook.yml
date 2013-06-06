@@ -1,0 +1,23 @@
+- hosts: test_nodes 
+  sudo: True
+  user: vagrant
+  tasks:
+
+    - name: sethostname
+      sethostname: 
+
+    - name: write to /tmp
+      action: shell echo Boo $myvar >> /tmp/foo.txt
+
+    - name: write MOTD
+      template: src=templates/motd dest=/etc/motd 
+
+    - name: install NTP
+      action: apt pkg=ntp state=installed
+
+    - action: service name=ntp enabled=yes state=started
+
+    - name: create user
+      user: name=bob
+
+    - authorized_key: user=abourget user=bob key='$FILE(/home/bryon/.ssh/id_rsa.pub)'

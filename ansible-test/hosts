@@ -1,0 +1,2 @@
+[test_nodes]
+127.0.0.1 myvar=123boo ansible_ssh_port=2200
